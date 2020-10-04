@@ -1,3 +1,244 @@
+/*
+    DEMO STYLE
+*/
+
+@import "https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700";
 body {
-    background-color: lightgray;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+
+.navbar {
+    padding: 15px 10px;
+    background: #fff !important;
+    border: none;
+    border-radius: 0;
+
+}
+
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 40px 0;
+}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+#sidebarCollapse {
+    font-size: 1.8em;
+    color: #f1f1f1;
+}
+
+.burger-section {
+    padding-top: 25px;
+    background: none !important;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 270px;
+    max-width: 270px;
+    background: #ffffff;
+    color: #000;
+    transition: all 0.3s;
+    position: relative;
+    box-shadow: #c1c1c1 2px 230px 4px;
+}
+
+#sidebar.active {
+    margin-left: -270px;
+}
+
+#sidebar .sidebar-header h3 {
+    text-align: center;
+    padding-top: 10px;
+    font-weight: bold !important;
+    background: #FEFEFE;
+    color: #3f3f3f;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+}
+
+#sidebar ul p {
+    color: #7b7b7b;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    display: block;
+    color: #3f3f3f;
+}
+
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+}
+
+ul.CTAs {
+    padding: 20px;
+}
+
+ul.CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+a.logout {
+    background: #EF5B5B;
+    color: #fff !important;
+}
+
+a.article,
+a.article:hover {
+    color: #fff !important;
+}
+
+.icon {
+    padding-right: 6px;
+}
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#content {
+    width: 100%;
+    min-height: 100vh;
+    transition: all 0.3s;
+    background-color: #EFF3F9;
+}
+
+.conteneur {
+    width: 75%;
+    margin: auto;
+    margin-top: 15px;
+}
+
+.bg-header-card {
+    background-color: #f1f2f3;
+    color: #454242;
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+}
+
+.card {
+    border-radius: 10px !important;
+}
+
+.heading-1 {
+    padding: 40px 15px 15px 15px;
+    font-size: 2.8em;
+    font-weight: lighter;
+    color: #f1f1f1;
+    text-transform: unset;
+    width: 75%;
+    margin: auto;
+}
+
+
+/* ----------------------------------------------
+    HEADER
+--------------------------------------------- */
+#header {
+    height: 230px;
+    background: rgb(77,164,117);
+    background: linear-gradient(90deg, rgba(77,164,117,1) 0%, rgba(9,121,116,1) 55%, rgba(57,112,116,1) 100%);
+}
+
+.card {
+    box-shadow: #c3c3c3 5px 5px 8px !important;
+}
+
+h5 {
+    font-weight: 600;
+}
+
+
+/* --------------------------------------------------
+BUTTONS COLORS
+ ------------------------------------------------*/
+
+.color-primary {
+    background: rgb(77,164,117);
+}
+
+.color-teal {
+    background: #397074;
+    color: #f1f1f1;
+}
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+@media (max-width: 768px) {
+
+
+    #sidebar {
+        margin-left: -270px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+
+    .heading-1 {
+        padding-left: 6px;
+        margin-bottom: 37px;
+        font-size: 2.2em;
+        font-weight: lighter;
+        color: #fff;
+        text-transform: unset;
+    }
+
+    .conteneur {
+        width: 85%;
+        margin: auto;
+        margin-top: 15px;
+    }
 }
