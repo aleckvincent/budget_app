@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 
+use App\Entity\Expense;
 use Symfony\Component\Routing\Annotation\Route;
 
 class CoreController extends \Symfony\Bundle\FrameworkBundle\Controller\AbstractController
@@ -14,7 +15,12 @@ class CoreController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function index() {
-        return $this->render('dashboard.html.twig');
+
+        $doctrine = $this->getDoctrine();
+        $expenses = $doctrine->getRepository(Expense::class);
+        return $this->render('dashboard.html.twig', [
+            'lastExpenses' => $expenses->findBy([], ['date' => 'DESC'], ['limit' => 10])
+        ]);
     }
 
 }

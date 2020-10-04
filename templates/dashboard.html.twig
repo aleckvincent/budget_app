@@ -77,66 +77,15 @@
                              </div>
                              <div class="card-text">
                                  <div class="list-group">
-                                     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                                         <div class="d-flex w-100 justify-content-between">
-                                             <h6 class="mb-1">List group item heading</h6>
-                                             <small>04/10/2020</small>
-                                         </div>
-                                     </a>
-                                     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                                         <div class="d-flex w-100 justify-content-between">
-                                             <h6 class="mb-1">List group item heading</h6>
-                                             <small>02/10/2020</small>
-                                         </div>
-                                     </a>
-                                     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                                         <div class="d-flex w-100 justify-content-between">
-                                             <h6 class="mb-1">List group item heading</h6>
-                                             <small>02/10/2020</small>
-                                         </div>
-                                     </a>
-                                     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                                         <div class="d-flex w-100 justify-content-between">
-                                             <h6 class="mb-1">List group item heading</h6>
-                                             <small>02/10/2020</small>
-                                         </div>
-                                     </a>
-                                     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                                         <div class="d-flex w-100 justify-content-between">
-                                             <h6 class="mb-1">List group item heading</h6>
-                                             <small>02/10/2020</small>
-                                         </div>
-                                     </a>
-                                     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                                         <div class="d-flex w-100 justify-content-between">
-                                             <h6 class="mb-1">List group item heading</h6>
-                                             <small>02/10/2020</small>
-                                         </div>
-                                     </a>
-                                     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                                         <div class="d-flex w-100 justify-content-between">
-                                             <h6 class="mb-1">List group item heading</h6>
-                                             <small>02/10/2020</small>
-                                         </div>
-                                     </a>
-                                     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                                         <div class="d-flex w-100 justify-content-between">
-                                             <h6 class="mb-1">List group item heading</h6>
-                                             <small>02/10/2020</small>
-                                         </div>
-                                     </a>
-                                     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                                         <div class="d-flex w-100 justify-content-between">
-                                             <h6 class="mb-1">List group item heading</h6>
-                                             <small>02/10/2020</small>
-                                         </div>
-                                     </a>
-                                     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                                         <div class="d-flex w-100 justify-content-between">
-                                             <h6 class="mb-1">List group item heading</h6>
-                                             <small>02/10/2020</small>
-                                         </div>
-                                     </a>
+                                     {% for le in lastExpenses %}
+                                         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                             <div class="d-flex w-100 justify-content-between">
+                                                 <h6 class="mb-1">{{ le.title }}</h6>
+                                                 <small class="text-danger">{{ le.amount }} €</small>
+                                             </div>
+                                         </a>
+                                     {% endfor %}
+
                                  </div>
                              </div>
                          </div>
@@ -145,8 +94,8 @@
              </div>
          </div>
 
-
-
-
-
      {% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('chart') }}
+{% endblock %}

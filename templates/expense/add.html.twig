@@ -1,0 +1,84 @@
+{%  extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div id="header">
+        {% block header %}{{ parent() }}{% endblock %}
+
+
+        <h1 class="heading-1"><i class="fas fa-plus-circle"></i> Ajout d'une dépense</h1>
+    </div>
+
+    <div class="conteneur">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h2>Formulaire de dépense</h2>
+                        </div>
+                        <div class="card-text">
+                            <form action="{{ path('expense_add') }}" method="post">
+                                <div class="form-group">
+                                    <label>Intitulé de la dépense *</label>
+                                    {{ form_widget(form.title) }}
+                                    {{ form_errors(form.title) }}
+                                    <small class="form-text text-muted">
+                                        Exemple : Commande Uber Eats KFC
+                                    </small>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Date *</label>
+                                            {{ form_widget(form.date) }}
+                                            {{ form_errors(form.date) }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Magasin / Site *</label>
+                                            {{ form_widget(form.store) }}
+                                            {{ form_errors(form.store) }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Montant *</label>
+                                            {{ form_widget(form.amount) }}
+                                            {{ form_errors(form.amount) }}
+                                            <small class="form-text text-muted">
+                                                Exemple pour 47€ 12 centimes, marquer 47.12
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Catégorie</label>
+                                            {{ form_widget(form.category) }}
+                                            {{ form_errors(form.category) }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <b><i>Les champs marqués d'une étoile (*) sont obligatoire.</i></b>
+                                </div>
+                                <div class="form-group mt-2">
+                                    <button type="submit" class="btn color-teal"><i class="fas fa-paper-plane"></i> Enregistrer</button>
+                                </div>
+                                {{ form_widget(form._token) }}
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}
