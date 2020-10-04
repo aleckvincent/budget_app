@@ -6,7 +6,7 @@
         {% block header %}{{ parent() }}{% endblock %}
 
 
-        <h1 class="heading-1"><i class="fas fa-plus-circle"></i> Ajout d'une dépense</h1>
+        <h1 class="heading-1"><i class="fas fa-plus-circle"></i> Ajout d'un revenu</h1>
     </div>
 
     <div class="conteneur">
@@ -15,16 +15,16 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="card-title">
-                            <h2>Formulaire de dépense</h2>
+                            <h2>Formulaire d'ajout</h2>
                         </div>
                         <div class="card-text">
-                            <form action="{{ path('expense_add') }}" method="post">
+                            <form action="{{ path('income_add') }}" method="post">
                                 <div class="form-group">
-                                    <label>Intitulé de la dépense *</label>
+                                    <label>Intitulé du revenu *</label>
                                     {{ form_widget(form.title) }}
                                     {{ form_errors(form.title) }}
                                     <small class="form-text text-muted">
-                                        Exemple : Commande Uber Eats KFC
+                                        Exemple : Virement Aleck
                                     </small>
                                 </div>
                                 <div class="row">
@@ -36,15 +36,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Magasin / Site *</label>
-                                            {{ form_widget(form.store) }}
-                                            {{ form_errors(form.store) }}
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
@@ -57,15 +49,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label>Catégorie</label>
-                                            {{ form_widget(form.category) }}
-                                            {{ form_errors(form.category) }}
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div class="">
                                     <b><i>Les champs marqués d'une étoile (*) sont obligatoire.</i></b>
                                 </div>

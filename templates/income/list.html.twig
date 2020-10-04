@@ -1,0 +1,38 @@
+{%  extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div id="header">
+        {% block header %}{{ parent() }}{% endblock %}
+
+
+        <h1 class="heading-1"><i class="fas fa-receipt"></i> Liste des revenus</h1>
+    </div>
+
+    <div class="conteneur">
+        <div class="card">
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Intitulé</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Montant</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in incomes %}
+                        <tr>
+                            <td>{{ i.title }}</td>
+                            <td>{{ i.date|date('d/m/Y') }}</td>
+                            <td>{{ i.amount }} €</td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}

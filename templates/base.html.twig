@@ -35,13 +35,23 @@
                 <a href="{{ path('index') }}"><i class="fas fa-home icon"></i> Tableau de bord</a>
             </li>
 
-            <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-shopping-basket icon"></i> Dépenses</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
+            <li class="">
+                <a href="#expenseSubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-shopping-basket icon"></i> Dépenses</a>
+                <ul class="collapse list-unstyled" id="expenseSubMenu">
                     <li>
                         <a href="{{ path('expense_list') }}">Liste des dépenses</a>
                     </li>
                     <li><a href="{{ path('expense_add') }}">Ajout d'une dépense</a></li>
+                </ul>
+            </li>
+
+            <li class="">
+                <a href="#incomeSubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-donate icon"></i> Revenus</a>
+                <ul class="collapse list-unstyled" id="incomeSubMenu">
+                    <li>
+                        <a href="{{ path('income_list') }}">Liste des revenus</a>
+                    </li>
+                    <li><a href="{{ path('income_add') }}">Ajout d'un revenu</a></li>
                 </ul>
             </li>
         </ul>
