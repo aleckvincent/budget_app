@@ -40,7 +40,7 @@ class ExpensesService implements ExpensesInterface
         $previousMonth = new \DateTime('-1 month');
         $previousMonth = $previousMonth->format('m');
 
-        $result = $this->em->getRepository(Expense::class)->findByPreviousMonth($previousMonth);
+        $result = $this->em->getRepository(Expense::class)->findByMonth($previousMonth);
         return $this->calculator->calculateAmount($result);
 
     }

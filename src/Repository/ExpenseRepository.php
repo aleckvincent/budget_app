@@ -24,7 +24,7 @@ class ExpenseRepository extends ServiceEntityRepository
      * @param $value
      * @return Expense[]
      */
-    public function findByPreviousMonth($value)
+    public function findByMonth($value)
     {
         return $this->createQueryBuilder('e')
             ->andWhere('MONTH(e.date) = :val')
@@ -32,7 +32,7 @@ class ExpenseRepository extends ServiceEntityRepository
             ->orderBy('e.date', 'DESC')
             ->getQuery()
             ->getResult()
-        ;
+            ;
     }
 
 
