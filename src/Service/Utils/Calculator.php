@@ -39,4 +39,14 @@ class Calculator
         return $totalInc - $totalExp;
     }
 
+    /**
+     * @param $val1
+     * @param $val2
+     * @return float
+     */
+    public function subtract($val1, $val2) : float
+    {
+        return $val1 - ($val2);
+    }
+
 }
