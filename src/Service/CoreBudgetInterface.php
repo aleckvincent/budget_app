@@ -13,4 +13,6 @@ interface CoreBudgetInterface
      */
     public function getEconomies() : float;
 
+    public function formatExpensesForChart() : array;
+
 }

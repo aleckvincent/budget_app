@@ -8,6 +8,7 @@ use App\Entity\Expense;
 use App\Entity\Income;
 use App\Service\Utils\Calculator;
 use Doctrine\ORM\EntityManagerInterface;
+use DoctrineExtensions\Query\Mysql\Exp;
 
 class CoreBudgetService implements \App\Service\CoreBudgetInterface
 {
@@ -53,5 +54,15 @@ class CoreBudgetService implements \App\Service\CoreBudgetInterface
         $currentInc = $this->em->getRepository(Income::class)->findByMonth($this->month);
         $currentBalance = $this->calculator->balance($currentExp, $currentInc);
         return $this->calculator->subtract($currentBalance, $prevBalance);
+    }
+
+
+    public function formatExpensesForChart(): array
+    {
+        $year = new \DateTime();
+        $year = $year->format('Y');
+        $expenses = $this->em->getRepository(Expense::class)->findAmountByYear($year);
+
+        return $expenses;
     }
 }

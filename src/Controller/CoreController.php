@@ -41,12 +41,14 @@ class CoreController extends AbstractController
 
         $doctrine = $this->getDoctrine();
         $expenses = $doctrine->getRepository(Expense::class);
+
         return $this->render('dashboard.html.twig', [
             'lastExpenses' => $expenses->findBy([], ['date' => 'DESC'], ['limit' => 10]),
             'totalExpenses' => $this->expService->getTotalPreviousMonth(),
             'balance' => $this->incService->getBalance(),
             'totalIncomes' => $this->incService->getCurrentIncomes(),
-            'economies' => $this->service->getEconomies()
+            'economies' => $this->service->getEconomies(),
+            'chart' => $this->service->formatExpensesForChart()
         ]);
     }
 
