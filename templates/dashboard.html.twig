@@ -18,7 +18,7 @@
                             <div class="card-body">
                                 <div class="card-subtitle mb-2 text-muted">Solde actuel</div>
                                 <div class="card-text">
-                                    <h2><i class="fas fa-wallet fa-lg"></i> {{  balance|number_format(2, ',') }} €</h2>
+                                    <h2><i class="fas fa-wallet fa-lg"></i> {{  balance|number_format(2, ',', ' ') }} €</h2>
                                 </div>
                             </div>
                         </div>
@@ -30,7 +30,7 @@
                             <div class="card-body">
                                 <div class="card-subtitle mb-2 text-muted">Revenues</div>
                                 <div class="card-text">
-                                    <h2><i class="fas fa-coins fa-lg"></i> {{ totalIncomes|number_format(2, ',') }} €</h2>
+                                    <h2><i class="fas fa-coins fa-lg"></i> {{ totalIncomes|number_format(2, ',', ' ') }} €</h2>
                                 </div>
                             </div>
                         </div>
@@ -42,7 +42,7 @@
                             <div class="card-body">
                                 <div class="card-subtitle mb-2 text-muted">Dépenses</div>
                                 <div class="card-text">
-                                    <h2><i class="fas fa-shopping-basket fa-lg"></i> {{ totalExpenses|number_format(2, ',') }} €</h2>
+                                    <h2><i class="fas fa-shopping-basket fa-lg"></i> {{ totalExpenses|number_format(2, ',', ' ') }} €</h2>
                                 </div>
                             </div>
                         </div>
@@ -54,7 +54,7 @@
                             <div class="card-body">
                                 <div class="card-subtitle mb-2 text-muted">Economies réalisées</div>
                                 <div class="card-text">
-                                    <h2><i class="fas fa-piggy-bank fa-lg"></i> {{ economies|number_format(2, ',') }} €</h2>
+                                    <h2><i class="fas fa-piggy-bank fa-lg"></i> {{ economies|number_format(2, ',', ' ') }} €</h2>
                                 </div>
                             </div>
                         </div>
@@ -121,7 +121,7 @@
                     '{{ c.date }}',
                     {% endfor %}],
                 datasets: [{
-                    label: 'Dépenses sur l\'année',
+                    label: 'Dépenses mensuelle',
                     data: [{% for c in chart %}{{c.amount}},{% endfor %}],
                     backgroundColor: [
                         '#89023E'
