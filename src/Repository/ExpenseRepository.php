@@ -35,6 +35,19 @@ class ExpenseRepository extends ServiceEntityRepository
             ;
     }
 
+    public function findAmountByYear($year)
+    {
+        return $this->createQueryBuilder('e')
+            ->select("DATE_FORMAT(e.date, '%b') as date, SUM(e.amount) as amount")
+            ->where('YEAR(e.date) = :year')
+            ->groupBy('date')
+            ->setParameter('year', $year)
+            ->orderBy('e.date', 'ASC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
 
     /*
     public function findOneBySomeField($value): ?Expense

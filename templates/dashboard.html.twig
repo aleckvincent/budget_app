@@ -109,5 +109,38 @@
      {% endblock %}
 
 {% block javascripts %}
-    {{ encore_entry_script_tags('chart') }}
+    <script>
+
+
+        var ctx = $('#myChart');
+
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [{% for c in chart %}
+                    '{{ c.date }}',
+                    {% endfor %}],
+                datasets: [{
+                    label: 'Dépenses sur l\'année',
+                    data: [{% for c in chart %}{{c.amount}},{% endfor %}],
+                    backgroundColor: [
+                        '#89023E'
+                    ],
+                    borderColor: [
+                        '#ff5e62'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
 {% endblock %}
