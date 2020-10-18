@@ -6,8 +6,9 @@ namespace App\Controller;
 
 use App\Entity\Expense;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class CoreController extends \Symfony\Bundle\FrameworkBundle\Controller\AbstractController
+class CoreController extends AbstractController
 {
 
     /**
