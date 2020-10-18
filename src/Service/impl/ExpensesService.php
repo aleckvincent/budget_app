@@ -35,12 +35,12 @@ class ExpensesService implements ExpensesInterface
         return $this->em->getRepository(Expense::class)->findAll();
     }
 
-    public function getTotalPreviousMonth(): float
+    public function getTotalCurrentMonth(): float
     {
-        $previousMonth = new \DateTime('-1 month');
-        $previousMonth = $previousMonth->format('m');
+        $month = new \DateTime();
+        $month = $month->format('m');
 
-        $result = $this->em->getRepository(Expense::class)->findByMonth($previousMonth);
+        $result = $this->em->getRepository(Expense::class)->findByMonth($month);
         return $this->calculator->calculateAmount($result);
 
     }

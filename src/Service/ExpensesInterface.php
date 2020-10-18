@@ -11,6 +11,6 @@ interface ExpensesInterface
 
     public function findAll() : array;
 
-    public function getTotalPreviousMonth() : float;
+    public function getTotalCurrentMonth() : float;
 
 }
