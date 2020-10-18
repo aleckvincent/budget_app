@@ -18,7 +18,19 @@
                             <div class="card-body">
                                 <div class="card-subtitle mb-2 text-muted">Solde actuel</div>
                                 <div class="card-text">
-                                    <h2><i class="fas fa-university fa-lg"></i> 89,29 €</h2>
+                                    <h2><i class="fas fa-wallet fa-lg"></i> {{  balance|number_format(2, ',') }} €</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Incomes -->
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-subtitle mb-2 text-muted">Revenues</div>
+                                <div class="card-text">
+                                    <h2><i class="fas fa-coins fa-lg"></i> {{ totalIncomes|number_format(2, ',') }} €</h2>
                                 </div>
                             </div>
                         </div>
@@ -36,25 +48,13 @@
                         </div>
                     </div>
 
-                    <!-- Incomes -->
-                    <div class="col-md-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="card-subtitle mb-2 text-muted">Revenues</div>
-                                <div class="card-text">
-                                    <h2><i class="fas fa-shopping-basket fa-lg"></i> {{ totalExpenses|number_format(2, ',') }} €</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                     <!-- Economies réalisées -->
                     <div class="col-md-3">
                         <div class="card">
                             <div class="card-body">
                                 <div class="card-subtitle mb-2 text-muted">Economies réalisées</div>
                                 <div class="card-text">
-                                    <h2><i class="fas fa-piggy-bank fa-lg"></i> + 34,07 €</h2>
+                                    <h2><i class="fas fa-piggy-bank fa-lg"></i> {{ economies|number_format(2, ',') }} €</h2>
                                 </div>
                             </div>
                         </div>
