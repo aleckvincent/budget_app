@@ -19,6 +19,21 @@ class IncomeRepository extends ServiceEntityRepository
         parent::__construct($registry, Income::class);
     }
 
+    /**
+     * @param $value
+     * @return Income[]
+     */
+    public function findByMonth($value)
+    {
+        return $this->createQueryBuilder('i')
+            ->andWhere('MONTH(i.date) = :val')
+            ->setParameter('val', $value)
+            ->orderBy('i.date', 'DESC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
     // /**
     //  * @return Income[] Returns an array of Income objects
     //  */
