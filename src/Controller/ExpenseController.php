@@ -6,7 +6,12 @@ namespace App\Controller;
 
 use App\Entity\Expense;
 use App\Form\ExpenseType;
+use App\Service\ExpensesInterface;
+use App\Service\impl\ExpensesService;
+use phpDocumentor\Reflection\Types\This;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -20,7 +25,7 @@ class ExpenseController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstr
     /**
      * @Route("/add", name="expense_add")
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return RedirectResponse|Response
      */
     public function add(Request $request)
     {
@@ -43,13 +48,13 @@ class ExpenseController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstr
 
     /**
      * @Route("/", name="expense_list")
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @param ExpensesInterface $service
+     * @return Response
      */
-    public function list()
+    public function list(ExpensesInterface $service)
     {
-        $repo = $this->getDoctrine()->getRepository(Expense::class);
         return $this->render('expense/list.html.twig', [
-            'expenses' => $repo->findBy([], ['date' => 'DESC'])
+            'expenses' => $service->findAll()
         ]);
     }
 
